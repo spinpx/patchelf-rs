@@ -2,6 +2,11 @@
 
 Rust FFI for patchelf that we can call patchelf directly in a dirty way.
 
+```
+[dependencies]
+patchelf = "0.1.0"
+```
+
 ## Usage
 - set soname
 ```rust
