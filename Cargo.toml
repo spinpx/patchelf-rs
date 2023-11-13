@@ -1,8 +1,10 @@
 [package]
-name = "patchelf-rs"
+name = "patchelf"
 version = "0.1.0"
 edition = "2021"
 authors = ["spinpx"]
+repository = "https://github.com/FuzzAnything/patchelf-rs"
+description = "patchelf rust bindings"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,3 +13,8 @@ authors = ["spinpx"]
 [build-dependencies]
 cc = "1.0"
 
+[[example]]
+name = "setso"
+
+[[example]]
+name = "printso"

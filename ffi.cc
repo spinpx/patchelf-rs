@@ -1,6 +1,6 @@
 
 // C style API for patchelf.
-#include<iostream>
+#include <iostream>
 
 extern "C" {
 bool patchelf_run() {
@@ -12,6 +12,17 @@ bool patchelf_run() {
     return false;
   }
 }
+
+void patchelf_clear() {
+  debugMode = false;
+  fileNames.clear();
+  setSoname = false;
+  printSoname = false;
+  newSoname.clear();
+  outputFileName.clear();
+}
+
+void patchelf_debug() { debugMode = true; }
 
 void patchelf_set_input(char* name) { fileNames.push_back(std::string(name)); }
 
