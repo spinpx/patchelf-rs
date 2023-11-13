@@ -1,3 +1,5 @@
+use std::{path::PathBuf, env};
+
 fn main() {
     // remove main function
     let path = "patchelf/src/patchelf.cc";
@@ -5,11 +7,12 @@ fn main() {
     code = code.replace("int main(", "int __patchelf_entry(");
     let ffi = std::fs::read_to_string("ffi.cc").unwrap();
     code.push_str(&ffi);
-    let new_path = "out.cc";
-    std::fs::write(new_path, code).unwrap();
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let new_path = out_path.join("patchelf.cc");
+    std::fs::write(&new_path, code).unwrap();
     cc::Build::new()
         .cpp(true)
-        .file(new_path)
+        .file(&new_path)
         .include("patchelf/src/")
         .flag_if_supported("-Wall")
         .flag_if_supported("-Wextra")
