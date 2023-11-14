@@ -12,7 +12,7 @@ Rust FFI for patchelf that we can call patchelf directly in a dirty way.
 
 ```toml
 [dependencies]
-patchelf = "0.2.0"
+patchelf = "0.2.1"
 ```
 
 ## Usage
