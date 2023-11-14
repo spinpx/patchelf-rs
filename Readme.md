@@ -1,6 +1,4 @@
-patchelf-rs
-
-===================
+# patchelf-rs
 
 [![Crates.io][crates-badge]][crates-url]
 [![docs.rs][docs-badge]][docs-url]
