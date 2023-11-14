@@ -3,9 +3,9 @@ name = "patchelf"
 version = "0.2.0"
 edition = "2021"
 authors = ["spinpx"]
-repository = "https://github.com/FuzzAnything/patchelf-rs"
+repository = "https://github.com/spinpx/patchelf-rs"
 description = "patchelf rust bindings"
-license = "Apache-2.0"
+license = "GPL-3.0-or-later"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
