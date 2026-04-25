@@ -15,7 +15,8 @@
 //!     .patch();
 //! ```
 
-use std::ffi::CString;
+use std::ffi::{c_char, CString};
+
 pub struct PatchElf {
     debug: bool,
     inputs: Vec<String>,
@@ -45,22 +46,22 @@ extern "C" {
     fn patchelf_run() -> bool;
     fn patchelf_clear();
     fn patchelf_debug();
-    fn patchelf_set_input(name: *const i8);
-    fn patchelf_set_soname(name: *const i8);
+    fn patchelf_set_input(name: *const c_char);
+    fn patchelf_set_soname(name: *const c_char);
     fn patchelf_print_soname();
-    fn patchelf_set_output(name: *const i8);
+    fn patchelf_set_output(name: *const c_char);
     fn patchelf_set_page_size(size: isize);
-    fn patchelf_set_osabi(name: *const i8);
-    fn patchelf_set_interpreter(name: *const i8);
+    fn patchelf_set_osabi(name: *const c_char);
+    fn patchelf_set_interpreter(name: *const c_char);
     fn patchelf_shrink_rpath();
-    fn patchelf_set_rpath(name: *const i8);
+    fn patchelf_set_rpath(name: *const c_char);
     fn patchelf_remove_rpath();
-    fn patchelf_add_rpath(name: *const i8);
+    fn patchelf_add_rpath(name: *const c_char);
     fn patchelf_force_rpath();
-    fn patchelf_allowed_rpath_prefixes(name: *const i8);
-    fn patchelf_add_needed(name: *const i8);
-    fn patchelf_remove_needed(name: *const i8);
-    fn patchelf_replace_needed(from: *const i8, to: *const i8);
+    fn patchelf_allowed_rpath_prefixes(name: *const c_char);
+    fn patchelf_add_needed(name: *const c_char);
+    fn patchelf_remove_needed(name: *const c_char);
+    fn patchelf_replace_needed(from: *const c_char, to: *const c_char);
 }
 impl PatchElf {
     pub fn config() -> Self {
